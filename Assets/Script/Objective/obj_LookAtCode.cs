@@ -25,7 +25,6 @@ public class obj_LookAtCode : ObjectiveCode
 		// Debug.Log("Interact broww");
 		if (objectiveMaster.int_objIndex == int_myIndex)
 		{
-
 			objectiveMaster.NextObj();
 		}
 	}

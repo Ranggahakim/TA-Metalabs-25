@@ -31,10 +31,14 @@ public class EyeOfPlayerCode : MonoBehaviour
 			{
 				fText.SetActive(true);
 			}
-
-			if (viewedObject.GetComponent<obj_LookAtCode>())
+			else if (viewedObject.GetComponent<obj_LookAtCode>())
 			{
 				viewedObject.GetComponent<obj_LookAtCode>().LookAtObject();
+			}
+
+			if (viewedObject.GetComponent<SearchedObjectCode>())
+			{
+				fText.SetActive(true);
 			}
 		}
 		else
@@ -52,6 +56,10 @@ public class EyeOfPlayerCode : MonoBehaviour
 				if (viewedObject.GetComponent<obj_InteractCode>())
 				{
 					viewedObject.GetComponent<obj_InteractCode>().InteractObject(this);
+				}
+				if (viewedObject.GetComponent<SearchedObjectCode>())
+				{
+					viewedObject.GetComponent<SearchedObjectCode>().InteractObject(this);
 				}
 
 				Debug.Log(viewedObject.gameObject.name);
