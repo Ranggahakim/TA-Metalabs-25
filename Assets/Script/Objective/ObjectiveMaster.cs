@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ObjectiveMaster : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class ObjectiveMaster : MonoBehaviour
 	public ObjectiveCode[] objectives;
 
 	public int int_objIndex;
+	public Text subTxt;
 	// Use this for initialization
 	void Start()
 	{
@@ -24,6 +26,7 @@ public class ObjectiveMaster : MonoBehaviour
 			index++;
 		}
 
+		objectives[0].DefaultStart();
 		objectives[0].StartObjective();
 	}
 

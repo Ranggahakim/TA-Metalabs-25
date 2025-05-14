@@ -1,22 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 public class obj_ReachLocation : ObjectiveCode
 {
 	[Space]
 	[Header("Info Variable")]
-	public Text subTxt;
 
-	public string str_subtitleText;
+	public GameObject theCube;
 
-	public float float_timeOfSubtitle;
+	void Start()
+	{
+		theCube.SetActive(false);
+	}
+
 	public override void StartObjective()
 	{
-		subTxt.text = str_subtitleText;
-		subTxt.gameObject.SetActive(true);
-
-		StartCoroutine(TimeForSubtitle());
+		theCube.SetActive(true);
 	}
 	public override void DoingObjective()
 	{
@@ -24,15 +23,16 @@ public class obj_ReachLocation : ObjectiveCode
 	}
 	public override void EndObjective()
 	{
-		subTxt.gameObject.SetActive(false);
+		theCube.SetActive(false);
 	}
 
-	IEnumerator TimeForSubtitle()
+	void OnTriggerEnter(Collider other)
 	{
-
-		yield return new WaitForSeconds(float_timeOfSubtitle);
-
-		objectiveMaster.NextObj();
+		if (other.gameObject.tag == "Player" && objectiveMaster.int_objIndex == int_myIndex)
+		{
+			objectiveMaster.NextObj();
+			Debug.Log("HOHO");
+		}
 	}
 
 }

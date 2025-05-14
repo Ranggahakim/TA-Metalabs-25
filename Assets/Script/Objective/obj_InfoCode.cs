@@ -13,6 +13,8 @@ public class obj_InfoCode : ObjectiveCode
 	public float float_timeOfSubtitle;
 	public override void StartObjective()
 	{
+		subTxt = objectiveMaster.subTxt;
+
 		subTxt.text = str_subtitleText;
 		subTxt.gameObject.SetActive(true);
 
