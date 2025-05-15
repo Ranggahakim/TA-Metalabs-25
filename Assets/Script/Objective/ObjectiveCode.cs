@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public abstract class ObjectiveCode : MonoBehaviour
 {
@@ -9,9 +10,8 @@ public abstract class ObjectiveCode : MonoBehaviour
 
 	[Header("Text on Left Top")]
 
-
+	public Text objNameTxt;
 	public string str_objName;
-	public string str_objDesc;
 
 	[Space]
 	[Header("GameObject to Active or NonActive")]
@@ -60,6 +60,14 @@ public abstract class ObjectiveCode : MonoBehaviour
 	{
 		SetGameObjectActiveOnStart();
 		SetGameObjectNonActiveOnStart();
+		if (str_objName != "")
+		{
+			objNameTxt.text = "- " + str_objName;
+		}
+		else
+		{
+			objNameTxt.text = "";
+		}
 	}
 
 	public void DefaultEnd()

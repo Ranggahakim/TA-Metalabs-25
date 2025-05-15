@@ -17,6 +17,8 @@ public class CharacterMovement : MonoBehaviour
 
 	Vector3 velocity;
 	bool isGrounded;
+
+	[SerializeField] Animator myAnim;
 	void Update()
 	{
 		if (!isDisabled)
@@ -30,6 +32,13 @@ public class CharacterMovement : MonoBehaviour
 
 			float x = Input.GetAxisRaw("Horizontal");
 			float z = Input.GetAxisRaw("Vertical");
+
+			if (x != 0 || z != 0)
+			{
+				myAnim.SetBool("isWalk", true);
+			}
+			else
+				myAnim.SetBool("isWalk", false);
 
 			Vector3 move = transform.right * x + transform.forward * z;
 

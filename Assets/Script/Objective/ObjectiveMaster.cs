@@ -9,6 +9,7 @@ public class ObjectiveMaster : MonoBehaviour
 	public ObjectiveCode[] objectives;
 
 	public int int_objIndex;
+	public Text objNameTxt;
 	public Text subTxt;
 	// Use this for initialization
 	void Start()
@@ -22,6 +23,7 @@ public class ObjectiveMaster : MonoBehaviour
 		foreach (ObjectiveCode obj in objectives)
 		{
 			obj.objectiveMaster = this;
+			obj.objNameTxt = objNameTxt;
 			obj.int_myIndex = index;
 			index++;
 		}

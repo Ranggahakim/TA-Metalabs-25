@@ -11,7 +11,7 @@ public class obj_InteractCode : ObjectiveCode
 
 	void Start()
 	{
-		myObject.SetActive(false);
+		gameObject.SetActive(false);
 	}
 
 	public override void StartObjective()
@@ -24,7 +24,7 @@ public class obj_InteractCode : ObjectiveCode
 	}
 	public override void EndObjective()
 	{
-
+		gameObject.SetActive(false);
 	}
 
 	public void InteractObject(EyeOfPlayerCode playerEye)
