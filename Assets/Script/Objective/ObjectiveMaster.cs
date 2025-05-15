@@ -38,6 +38,8 @@ public class ObjectiveMaster : MonoBehaviour
 
 	}
 
+
+	[ContextMenu("Next Tutorial")]
 	public void NextObj()
 	{
 		objectives[int_objIndex].DefaultEnd();
